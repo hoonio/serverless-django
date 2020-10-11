@@ -1,0 +1,26 @@
+service: serverless-django
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: dev
+  region: us-west-2
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements
+
+functions:
+  app:
+    handler: wsgi_handler.handler
+    environment: ${self:custom.variables}
+    timeout: 30
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
+custom: 
+  wsgi:
+    app: serverless.wsgi.application
+    packRequirements: false
+  variables: ${file(./env.yml)}

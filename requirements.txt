@@ -1,0 +1,7 @@
+asgiref==3.2.10
+Django==3.1.2
+psycopg2-binary==2.8.6
+pytz==2020.1
+serverless-wsgi==1.7.5
+sqlparse==0.4.1
+Werkzeug==1.0.1
