@@ -1,0 +1,5 @@
+__pycache__/
+.serverless/
+.vscode/
+node_modules/
+env.yml
